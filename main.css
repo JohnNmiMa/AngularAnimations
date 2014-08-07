@@ -1,0 +1,56 @@
+div[ng-init] div {
+    color:#fff;
+    background-color:#000;
+}
+
+
+/***************** */
+/* CSS Transitions */
+/***************** */
+
+/* starting animations when entering (ngIf == true) */
+.css-transition-animation.ng-enter {
+    -webkit-transition:2s linear all;
+            transition:2s linear all;
+    background-color:white;
+}
+/* starting animations when leaving (ngIf == false) */
+.css-transition-animation.ng-leave {
+    -webkit-transition:2s linear all;
+            transition:2s linear all;
+    background-color:black;
+}
+
+/* destination animations */
+.css-transition-animation.ng-enter.ng-enter-active {
+    background-color:black;
+}
+.css-transition-animation.ng-leave.ng-leave-active {
+    background-color:white;
+}
+
+
+/************************** */
+/* CSS Keyframe Transitions */
+/************************** */
+
+/* starting animations when entering (ngIf == true) */
+.css-keyframe-animation.ng-enter {
+  -webkit-animation:2s linear white-to-black;
+          animation:2s linear white-to-black;
+}
+/* starting animations when leaving (ngIf == false) */
+.css-keyframe-animation.ng-leave {
+  -webkit-animation:2s linear black-to-white;
+          animation:2s linear black-to-white;
+}
+
+/* destination animations */
+@-webkit-keyframes white-to-black {
+  from { background-color:white; }
+  to   { background-color:black; }
+}
+@-webkit-keyframes black-to-white {
+  from { background-color:black; }
+  to   { background-color:white; }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Waitstaff Calc</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="./main.css"  rel="stylesheet" type="text/css">
+    <script src="./jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="./jquery.color.js" type="text/javascript"></script>
+    <script src="./angular.js" type="text/javascript"></script>
+    <script src="./angular-animate.js" type="text/javascript"></script>
+    <script src="./myApp.js" type="text/javascript"></script>
+</head>
+<body>
+    <!--ngIf animation in AngularJS-->
+    <div ng-init="on=true">
+        <p>Animate the ngIf directive:
+            <button ng-click="on=!on">Toggle On/Off</button>
+        </p>
+        <div class="css-transition-animation" ng-if="on">
+            This content will enter and leave using css transitions for animation
+        </div>
+        <div class="css-keyframe-animation" ng-if="on">
+            This content will enter and leave using css keyframes for animation
+        </div>
+        <div class="js-animation" ng-if="on">
+            This content will enter and leave using javascript animation
+        </div>
+    </div>
+
+    <!--ngRepeat animation in AngularJS-->
+    <div ng-init="items=[1,2,3,4,5]">
+        <label for="ngrepeat">Animate the ngRepeat directive:</label>
+        <input id="ngrepeat" placeholder="Filter Repeat Items..." ng-model="f"> 
+        <div data-ng-repeat="item in items | filter:f track by item" class="js-animation">
+            {{item}}
+        </div>
+    </div>
+
+    <!--ngInclude animation in AngularJS-->
+    <div ng-init="includeVar='one'">
+        <button ng-click="includeVar='one'">One</button>
+        <button ng-click="includeVar='two'">Two</button>
+        <button ng-click="includeVar='three'">Three</button>
+        <div class="my-slide-container">
+            <div ng-include="includeVar" class="css-keyframe-animation"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="one"> one </script>
+    <script type="text/ng-template" id="two"> two </script>
+    <script type="text/ng-template" id="three"> three </script>
+
+    <!--ngSwitch animation in AngularJS-->
+    <div ng-init="switchVar='one'">
+        <button ng-click="switchVar='one'">One</button>
+        <button ng-click="switchVar='two'">Two</button>
+        <button ng-click="switchVar='three'">Three</button>
+        <div ng-switch="switchVar" class="my-switch-container">
+            <div ng-switch-when="one" class="js-animation"> one </div>
+            <div ng-switch-when="two" class="js-animation"> two </div>
+            <div ng-switch-when="three" class="js-animation"> three </div>
+        </div>
+    </div>
+</body>
+</html>
