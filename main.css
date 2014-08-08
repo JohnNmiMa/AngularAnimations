@@ -4,43 +4,43 @@ div[ng-init] div {
 }
 
 
-/***************** */
-/* CSS Transitions */
-/***************** */
+/********************** */
+/* ngIf CSS Transitions */
+/********************** */
 
 /* starting animations when entering (ngIf == true) */
-.css-transition-animation.ng-enter {
+.ngif-css-transition-animation.ng-enter {
     -webkit-transition:2s linear all;
             transition:2s linear all;
     background-color:white;
 }
 /* starting animations when leaving (ngIf == false) */
-.css-transition-animation.ng-leave {
+.ngif-css-transition-animation.ng-leave {
     -webkit-transition:2s linear all;
             transition:2s linear all;
     background-color:black;
 }
 
 /* destination animations */
-.css-transition-animation.ng-enter.ng-enter-active {
+.ngif-css-transition-animation.ng-enter.ng-enter-active {
     background-color:black;
 }
-.css-transition-animation.ng-leave.ng-leave-active {
+.ngif-css-transition-animation.ng-leave.ng-leave-active {
     background-color:white;
 }
 
 
-/************************** */
-/* CSS Keyframe Transitions */
-/************************** */
+/******************************* */
+/* ngIf CSS Keyframe Transitions */
+/******************************* */
 
 /* starting animations when entering (ngIf == true) */
-.css-keyframe-animation.ng-enter {
+.ngif-css-keyframe-animation.ng-enter {
   -webkit-animation:2s linear white-to-black;
           animation:2s linear white-to-black;
 }
 /* starting animations when leaving (ngIf == false) */
-.css-keyframe-animation.ng-leave {
+.ngif-css-keyframe-animation.ng-leave {
   -webkit-animation:2s linear black-to-white;
           animation:2s linear black-to-white;
 }
@@ -53,4 +53,388 @@ div[ng-init] div {
 @-webkit-keyframes black-to-white {
   from { background-color:black; }
   to   { background-color:white; }
+}
+
+
+/************************** */
+/* ngRepeat CSS Transitions */
+/************************** */
+
+.ngrepeat-css-transition-animation.ng-enter,
+.ngrepeat-css-transition-animation.ng-leave,
+.ngrepeat-css-transition-animation.ng-move {
+    -webkit-transition: 0.5s linear all;
+            transition: 0.5s linear all;
+    position:relative;
+}
+
+.ngrepeat-css-transition-animation.ng-enter {
+    left:-10px;
+    opacity:0;
+}
+.ngrepeat-css-transition-animation.ng-enter.ng-enter-active {
+    left:0;
+    opacity:1;
+}
+
+.ngrepeat-css-transition-animation.ng-leave {
+    left:0;
+    opacity:1;
+}
+.ngrepeat-css-transition-animation.ng-leave.ng-leave-active {
+    left:-10px;
+    opacity:0;
+}
+
+.ngrepeat-css-transition-animation.ng-move {
+    opacity:0.5;
+}
+.ngrepeat-css-transition-animation.ng-move.ng-move-active {
+    opacity:1;
+}
+
+
+/*********************************** */
+/* ngRepeat CSS Keyframe Transitions */
+/*********************************** */
+
+.ngrepeat-css-keyframe-animation.ng-enter,
+.ngrepeat-css-keyframe-animation.ng-leave,
+.ngrepeat-css-keyframe-animation.ng-move {
+  position:relative;
+}
+
+.ngrepeat-css-keyframe-animation.ng-enter {
+  -webkit-animation: 0.5s repeat-animation-enter;
+  animation: 0.5s repeat-animation-enter;
+}
+
+.ngrepeat-css-keyframe-animation.ng-leave {
+  -webkit-animation: 0.5s repeat-animation-leave;
+  animation: 0.5s repeat-animation-leave;
+}
+
+.ngrepeat-css-keyframe-animation.ng-move {
+  -webkit-animation: 0.5s repeat-animation-move;
+  animation: 0.5s repeat-animation-move;
+}
+
+@keyframes repeat-animation-enter {
+  from {
+    left:-10px;
+    opacity:0;
+  }
+  to {
+    left:0;
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes repeat-animation-enter {
+  from {
+    left:-10px;
+    opacity:0;
+  }
+  to {
+    left:0;
+    opacity:1;
+  }
+}
+
+@keyframes repeat-animation-leave {
+  from {
+    left:0;
+    opacity:1;
+  }
+  to {
+    left:-10px;
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes repeat-animation-leave {
+  from {
+    left:0;
+    opacity:1;
+  }
+  to {
+    left:-10px;
+    opacity:0;
+  }
+}
+
+@keyframes repeat-animation-move {
+  from { opacity:0.5; }
+  to { opacity:1; }
+}
+
+@-webkit-keyframes repeat-animation-move {
+  from { opacity:0.5; }
+  to { opacity:1; }
+}
+
+
+/************************** */
+/* ngInclude CSS Transitions */
+/************************** */
+
+.my-slide-container {
+  position:relative;
+}
+.nginclude-css-transition-animation.ng-enter,
+.nginclude-css-transition-animation.ng-leave {
+    -webkit-transition:2s linear all;
+            transition:2s linear all;
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+}
+
+.nginclude-css-transition-animation.ng-enter {
+    z-index:100;
+    top:600px;
+    opacity:0;
+}
+.nginclude-css-transition-animation.ng-enter.ng-enter-active {
+    top:0;
+    opacity:1;
+}
+
+.nginclude-css-transition-animation.ng-leave {
+    z-index:101;
+    top:0;
+    opacity:1;
+}
+.nginclude-css-transition-animation.ng-leave.ng-leave-active {
+    top:-600px;
+    opacity:0;
+}
+
+
+/*********************************** */
+/* ngInclude CSS Keyframe Transitions */
+/*********************************** */
+.nginclude-css-keyframe-animation.ng-enter,
+.nginclude-css-keyframe-animation.ng-leave {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+}
+
+.nginclude-css-keyframe-animation.ng-enter {
+    -webkit-animation: 2s slide-animation-enter;
+            animation: 2s slide-animation-enter;
+}
+
+.nginclude-css-keyframe-animation.ng-leave {
+    -webkit-animation: 2s slide-animation-leave;
+            animation: 2s slide-animation-leave;
+}
+
+@keyframes slide-animation-enter {
+    from {
+        z-index:100;
+        top:600px;
+        opacity:0;
+    }
+    to {
+        top:0;
+        opacity:1;
+    }
+}
+
+@keyframes slide-animation-leave {
+    from {
+        z-index:101;
+        top:0;
+        opacity:1;
+    }
+    to {
+        top:-600px;
+        opacity:0;
+    }
+}
+
+@-webkit-keyframes slide-animation-enter {
+    from {
+        z-index:100;
+        top:600px;
+        opacity:0;
+    }
+    to {
+        top:0;
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes slide-animation-leave {
+    from {
+        z-index:101;
+        top:0;
+        opacity:1;
+    }
+    to {
+        top:-600px;
+        opacity:0;
+    }
+}
+
+
+/************************** */
+/* ngClass CSS Transitions */
+/************************** */
+
+.ngclass-css-transition-animation {
+    -webkit-transition:0.5s linear all;
+            transition:0.5s linear all;
+
+    background-color:white;
+    padding:10px;
+    border:1px solid black;
+    color:black;
+}
+
+.ngclass-css-transition-animation.disabled1 {
+    background-color:grey;
+    color:#555;
+    border-color:#555;
+}
+
+
+/*********************************** */
+/* ngClass CSS Keyframe Transitions */
+/*********************************** */
+
+.ngclass-css-keyframe-animation,
+.ngclass-js-animation {
+    padding:10px;
+    border:1px solid black;
+}
+
+.ngclass-css-keyframe-animation.disabled2-add {
+    -webkit-animation:0.5s disable-on;
+            animation:0.5s disable-on;
+}
+
+@keyframes disable-on {
+  from {
+    background-color:black;
+    color:white;
+    border-color:black;
+  }
+  to {
+    background-color:grey;
+    color:#555;
+    border-color:#555;
+  }
+}
+
+@-webkit-keyframes disable-on {
+  from {
+    background-color:black;
+    color:white;
+    border-color:black;
+  }
+  to {
+    background-color:grey;
+    color:#555;
+    border-color:#555;
+  }
+}
+
+.ngclass-css-keyframe-animation.disabled2 {
+  background-color:grey;
+  color:#555;
+  border-color:#555;
+}
+
+.ngclass-css-keyframe-animation.disabled2-remove {
+  -webkit-animation:0.5s disable-off;
+          animation:0.5s disable-off;
+}
+
+@keyframes disable-off {
+  from {
+    background-color:grey;
+    color:#555;
+    border-color:#555;
+  }
+  to {
+    background-color:black;
+    color:white;
+    border-color:black;
+  }
+}
+
+@-webkit-keyframes disable-off {
+  from {
+    background-color:grey;
+    color:#555;
+    border-color:#555;
+  }
+  to {
+    background-color:black;
+    color:white;
+    border-color:black;
+  }
+}
+
+
+/******************************* */
+/* ngShow/ngHide CSS Transitions */
+/******************************* */
+
+.nghide-css-transition-animation.ng-hide-add,
+.nghide-css-transition-animation.ng-hide-remove {
+    -webkit-transition:0.5s linear all;
+            transition:0.5s linear all;
+
+    /* remember to add this */
+    display:block!important;
+    opacity:1;
+}
+.nghide-css-transition-animation.ng-hide {
+    opacity:0;
+}
+
+/**************************************** */
+/* ngShow/ngHide CSS Keyframe Transitions */
+/**************************************** */
+
+.nghide-css-keyframe-animation.ng-hide-add,
+.nghide-css-keyframe-animation.ng-hide-remove {
+    /* remember, the .hg-hide class is added to element
+       when the active class is added causing it to appear
+       as hidden. Therefore set the styling to display=block
+       so that the hide animation is visible */
+    display:block!important;
+}
+
+.nghide-css-keyframe-animation.ng-hide-add {
+  -webkit-animation:0.5s hide;
+  animation:0.5s hide;
+}
+@keyframes hide {
+    from { opacity:1; }
+    to   { opacity:0; }
+}
+@-webkit-keyframes hide {
+    from { opacity:1; }
+    to   { opacity:0; }
+}
+
+.nghide-css-keyframe-animation.ng-hide-remove {
+    -webkit-animation:0.5s show;
+            animation:0.5s show;
+}
+@keyframes show {
+    from { opacity:0; }
+    to   { opacity:1; }
+}
+@-webkit-keyframes show {
+    from { opacity:0; }
+    to   { opacity:1; }
 }

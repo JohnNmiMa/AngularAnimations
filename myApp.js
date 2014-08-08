@@ -1,5 +1,5 @@
 angular.module('myApp', ['ngAnimate'])
-.animation('.js-animation', function() {
+.animation('.ngif-js-animation', function() {
     /* The following angular-javascript animation will animate the background-color
      * of any element that contains the ".js-animation" class. The jQuery.animate() function
      * is used to do the animation. The enter, leave, etc event functions are called by
@@ -47,5 +47,150 @@ angular.module('myApp', ['ngAnimate'])
         removeClass : function(element, className, done) { done(); },
 
         allowCancel : function(element, event, className) {}
+    };
+})
+.animation('.ngrepeat-js-animation', function() {
+    return {
+        enter : function(element, done) {
+            jQuery(element).css({
+                position:'relative',
+                left:-10,
+                opacity:0
+            });
+            jQuery(element).animate({
+                left:0,
+                opacity:1
+            }, done);
+        },
+
+        leave : function(element, done) {
+            jQuery(element).css({
+                position:'relative',
+                left:0,
+                opacity:1
+            });
+            jQuery(element).animate({
+                left:-10,
+                opacity:0
+            }, done);
+        },
+
+        move : function(element, done) {
+            jQuery(element).css({
+                opacity:0.5
+            });
+            jQuery(element).animate({
+                opacity:1
+            }, done);
+        }
+    };
+})
+.animation('.nginclude-js-animation', function() {
+    return {
+        enter : function(element, done) {
+            jQuery(element).css({
+                position:'absolute',
+                'z-index':100,
+                top:600,
+                opacity:0
+            });
+            jQuery(element).animate({
+                top:0,
+                opacity:1
+            }, 2000, done);
+        },
+
+        leave : function(element, done) {
+            jQuery(element).css({
+                position:'absolute',
+                'z-index':101,
+                top:0,
+                opacity:1
+            });
+            jQuery(element).animate({
+                top:-600,
+                opacity:0
+                }, 2000, done);
+        }
+    };
+})
+.animation('.ngswitch-js-animation', function() {
+    return {
+        enter : function(element, done) {
+            element = jQuery(element);
+            element.css({
+                position:'absolute',
+                height:500,
+                left:element.parent().width()
+            });
+            element.animate({
+                left:0
+            }, done);
+        },
+
+        leave : function(element, done) {
+            element = jQuery(element);
+            element.css({
+                position:'absolute',
+                height:500,
+                left:0
+            });
+            element.animate({
+                left:-element.parent().width()
+            }, done);
+        }
+    };
+})
+.animation('.ngclass-js-animation', function() {
+    return {
+        beforeAddClass : function(element, className, done) {
+            if(className == 'disabled3') {
+                jQuery(element).animate({
+                    'color':'#555',
+                    'background-color':'#888',
+                    'border-color':'#555'
+                }, done);
+            }
+            else {
+                done();
+            }
+        },
+
+        beforeRemoveClass : function(element, className, done) {
+            if(className == 'disabled3') {
+                jQuery(element).animate({
+                    'color':'#fff',
+                    'background-color':'#000'
+                }, done);
+            }
+            else {
+                done();
+            }
+        }
+    };
+})
+.animation('.nghide-js-animation', function() {
+    return {
+        beforeAddClass : function(element, className, done) {
+            if(className == 'ng-hide') {
+                jQuery(element).animate({
+                    opacity:0
+                }, done);
+                }
+                else {
+                    done();
+                }
+        },
+        removeClass : function(element, className, done) {
+            if(className == 'ng-hide') {
+                element.css('opacity',0);
+                jQuery(element).animate({
+                    opacity:1
+                }, done);
+            }
+            else {
+                done();
+            }
+        }
     };
 });

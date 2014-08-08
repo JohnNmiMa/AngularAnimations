@@ -14,51 +14,147 @@
 <body>
     <!--ngIf animation in AngularJS-->
     <div ng-init="on=true">
-        <p>Animate the ngIf directive:
+        <p>ngIf animations:
             <button ng-click="on=!on">Toggle On/Off</button>
         </p>
-        <div class="css-transition-animation" ng-if="on">
+        <div class="ngif-css-transition-animation" ng-if="on">
             This content will enter and leave using css transitions for animation
         </div>
-        <div class="css-keyframe-animation" ng-if="on">
+        <div class="ngif-css-keyframe-animation" ng-if="on">
             This content will enter and leave using css keyframes for animation
         </div>
-        <div class="js-animation" ng-if="on">
+        <div class="ngif-js-animation" ng-if="on">
             This content will enter and leave using javascript animation
         </div>
-    </div>
+    </div><br>
 
     <!--ngRepeat animation in AngularJS-->
     <div ng-init="items=[1,2,3,4,5]">
-        <label for="ngrepeat">Animate the ngRepeat directive:</label>
+        <label for="ngrepeat">ngRepeat animation using css transitions:</label>
         <input id="ngrepeat" placeholder="Filter Repeat Items..." ng-model="f"> 
-        <div data-ng-repeat="item in items | filter:f track by item" class="js-animation">
+        <div data-ng-repeat="item in items | filter:f track by item" class="ngrepeat-css-transition-animation">
             {{item}}
         </div>
     </div>
-
-    <!--ngInclude animation in AngularJS-->
-    <div ng-init="includeVar='one'">
-        <button ng-click="includeVar='one'">One</button>
-        <button ng-click="includeVar='two'">Two</button>
-        <button ng-click="includeVar='three'">Three</button>
-        <div class="my-slide-container">
-            <div ng-include="includeVar" class="css-keyframe-animation"></div>
+    <div ng-init="items=[1,2,3,4,5]">
+        <label for="ngrepeat">ngRepeat animation using css keyframes:</label>
+        <input id="ngrepeat" placeholder="Filter Repeat Items..." ng-model="g"> 
+        <div data-ng-repeat="item in items | filter:g track by item" class="ngrepeat-css-keyframe-animation">
+            {{item}}
         </div>
     </div>
+    <div ng-init="items=[1,2,3,4,5]">
+        <label for="ngrepeat">ngRepeat animation using javascript:</label>
+        <input id="ngrepeat" placeholder="Filter Repeat Items..." ng-model="h"> 
+        <div data-ng-repeat="item in items | filter:h track by item" class="ngrepeat-js-animation">
+            {{item}}
+        </div>
+    </div><br>
+
+    <!--ngInclude animation in AngularJS-->
+    <div ng-init="includeVar1='one'">
+        <p>ngInclude animation using css transitions: 
+            <button ng-click="includeVar1='one'">One</button>
+            <button ng-click="includeVar1='two'">Two</button>
+            <button ng-click="includeVar1='three'">Three</button>
+        </p>
+        <div class="my-slide-container">
+            <div ng-include="includeVar1" class="nginclude-css-transition-animation"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="one"> one </script>
+    <script type="text/ng-template" id="two"> two </script>
+    <script type="text/ng-template" id="three"> three </script>
+    <div ng-init="includeVar2='one'">
+        <p>ngInclude animation using css keyframes: 
+            <button ng-click="includeVar2='one'">One</button>
+            <button ng-click="includeVar2='two'">Two</button>
+            <button ng-click="includeVar2='three'">Three</button>
+        </p>
+        <div class="my-slide-container">
+            <div ng-include="includeVar2" class="nginclude-css-keyframe-animation"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="one"> one </script>
+    <script type="text/ng-template" id="two"> two </script>
+    <script type="text/ng-template" id="three"> three </script>
+    <div ng-init="includeVar3='one'">
+        <p>ngInclude animation using javascript: 
+            <button ng-click="includeVar3='one'">One</button>
+            <button ng-click="includeVar3='two'">Two</button>
+            <button ng-click="includeVar3='three'">Three</button>
+        </p>
+        <div class="my-slide-container">
+            <div ng-include="includeVar3" class="nginclude-js-animation"></div>
+        </div>
+    </div><br>
     <script type="text/ng-template" id="one"> one </script>
     <script type="text/ng-template" id="two"> two </script>
     <script type="text/ng-template" id="three"> three </script>
 
     <!--ngSwitch animation in AngularJS-->
     <div ng-init="switchVar='one'">
-        <button ng-click="switchVar='one'">One</button>
-        <button ng-click="switchVar='two'">Two</button>
-        <button ng-click="switchVar='three'">Three</button>
+        <p>ngSwitch animation using javascript: 
+            <button ng-click="switchVar='one'">One</button>
+            <button ng-click="switchVar='two'">Two</button>
+            <button ng-click="switchVar='three'">Three</button>
+        </p>
         <div ng-switch="switchVar" class="my-switch-container">
-            <div ng-switch-when="one" class="js-animation"> one </div>
-            <div ng-switch-when="two" class="js-animation"> two </div>
-            <div ng-switch-when="three" class="js-animation"> three </div>
+            <div ng-switch-when="one" class="ngswitch-js-animation"> one </div>
+            <div ng-switch-when="two" class="ngswitch-js-animation"> two </div>
+            <div ng-switch-when="three" class="ngswitch-js-animation"> three </div>
+        </div>
+    </div><br>
+
+    <!--ngclass animation in AngularJS-->
+    <div ng-init="disabled1=false">
+        <p>ngSwitch animation using css transitions: 
+            <button ng-click="disabled1=!disabled1">Toggle Disable</button>
+        </p>
+        <div ng-class="{disabled1:disabled1}" class="ngclass-css-transition-animation">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </div>
+    </div>
+    <div ng-init="disabled2=false">
+        <p>ngSwitch animation using css keyframes: 
+            <button ng-click="disabled2=!disabled2">Toggle Disable</button>
+        </p>
+        <div ng-class="{disabled2:disabled2}" class="ngclass-css-keyframe-animation">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </div>
+    </div>
+    <div ng-init="disabled3=false">
+        <p>ngSwitch animation using javascript: 
+            <button ng-click="disabled3=!disabled3">Toggle Disable</button>
+        </p>
+        <div ng-class="{disabled3:disabled3}" class="ngclass-js-animation">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </div>
+    </div><br>
+
+    <!--nghide animation in AngularJS-->
+    <div ng-init="isHidden1=false">
+        <p>ngHide animation using css transitions: 
+            <button ng-click="isHidden1=!isHidden1">Show / Hide Element</button>
+        </p>
+        <div class="nghide-css-transition-animation" ng-hide="isHidden1">
+            I am visible!
+        </div>
+    </div>
+    <div ng-init="isHidden2=false">
+        <p>ngHide animation using css keyframes: 
+            <button ng-click="isHidden2=!isHidden2">Show / Hide Element</button>
+        </p>
+        <div class="nghide-css-keyframe-animation" ng-hide="isHidden2">
+            I am visible!
+        </div>
+    </div>
+    <div ng-init="isHidden3=false">
+        <p>ngHide animation using javascript: 
+            <button ng-click="isHidden3=!isHidden3">Show / Hide Element</button>
+        </p>
+        <div class="nghide-js-animation" ng-hide="isHidden3">
+            I am visible!
         </div>
     </div>
 </body>
