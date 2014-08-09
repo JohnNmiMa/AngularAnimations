@@ -150,8 +150,7 @@ angular.module('myApp', ['ngAnimate'])
                     'background-color':'#888',
                     'border-color':'#555'
                 }, done);
-            }
-            else {
+            } else {
                 done();
             }
         },
@@ -162,8 +161,7 @@ angular.module('myApp', ['ngAnimate'])
                     'color':'#fff',
                     'background-color':'#000'
                 }, done);
-            }
-            else {
+            } else {
                 done();
             }
         }
@@ -176,10 +174,9 @@ angular.module('myApp', ['ngAnimate'])
                 jQuery(element).animate({
                     opacity:0
                 }, done);
-                }
-                else {
-                    done();
-                }
+            } else {
+                done();
+            }
         },
         removeClass : function(element, className, done) {
             if(className == 'ng-hide') {
@@ -187,8 +184,7 @@ angular.module('myApp', ['ngAnimate'])
                 jQuery(element).animate({
                     opacity:1
                 }, done);
-            }
-            else {
+            } else {
                 done();
             }
         }
